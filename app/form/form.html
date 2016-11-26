@@ -1,0 +1,66 @@
+<div class="container">
+
+  <div class="text-center">
+    <h3>{{title.TopText}}</h3>
+    <h5>{{title.stringToReturn}}</h5>
+  </div>
+
+  <div class="container-fluid">
+    <div class="row col-md-12">
+
+      <form name="userForm" ng-submit="submitForm()" novalidate>
+        <div class="form-group " ng-class="{ 'has-error' : userForm.email.$invalid && !userForm.email.$pristine }">
+          <label>Email address:</label>
+          <input
+          type="email"
+          name="email"
+          class="form-control"
+          placeholder="Enter your email"
+          ng-model="user.email"
+          ng-maxlength="50"
+          required/>
+
+          <p ng-show="userForm.email.$invalid && !userForm.email.$pristine" class="text-danger">Enter a valid email.</p>
+          <p ng-show="userForm.email.$valid && !userForm.email.$pristine" class="text-success">Email is valid.</p>
+
+          <div ng-messages="userForm.email.$error" role="alert">
+            <div ng-message="maxlength">*E-mail is too long</div>
+          </div>
+        </div>
+
+        <label>Gender:</label>
+        <select class="form-control" ng-model="user.gender" name="gender" required>
+          <option value="" disabled selected>Select your gender</option>
+          <option value="1">Male</option>
+          <option value="2">Female</option>
+        </select>
+        <span ng-show="myForm.select.$error.required">Please select gender</span>
+
+        <br>
+
+        <div class="[ form-group ]">
+          <input type="checkbox" name="terms" ng-model="user.isAgree" id="fancy-checkbox-primary" autocomplete="off" required />
+          <div class="[ btn-group ]">
+            <label for="fancy-checkbox-primary" class="[ btn btn-primary ]">
+              <span class="[ glyphicon glyphicon-ok ]"></span>
+              <span> </span>
+            </label>
+            <label for="fancy-checkbox-primary" class="[ btn btn-default active ]">
+              I agree to terms
+            </label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <button type="submit" ng-disabled="userForm.$invalid" class="btn btn-primary">Submit</button>
+        </div>
+
+        <p ng-show="userForm.email.$invalid" class="help-block"> <i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Missing Email.</p>
+        <p ng-show="userForm.gender.$invalid" class="help-block"> <i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Missing Gender.</p>
+        <p ng-show="userForm.terms.$invalid" class="help-block"> <i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Missing Agree Terms.</p>
+
+      </form>
+
+    </div>
+  </div>
+</div>

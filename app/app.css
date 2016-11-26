@@ -1,0 +1,48 @@
+/* App CSS Stylesheet */
+
+@media (min-width: 100px) {
+  .container-fluid {
+    max-width: 500px;
+  }
+}
+
+.form-control:hover{
+  border-color: #239fdb;
+}
+
+
+/*   Menu Bar   */
+.menu {
+  list-style: none;
+  border-bottom: 0.1em solid black;
+  margin: 1em 0 2em 0;
+  padding: 0 0 1em 1em;
+}
+
+.menu > div {
+  display: inline;
+}
+
+
+/*   Checkbox Style   */
+.form-group input[type="checkbox"] {
+    display: none;
+}
+
+.form-group input[type="checkbox"] + .btn-group > label span {
+    width: 10px;
+}
+
+.form-group input[type="checkbox"] + .btn-group > label span:first-child {
+    display: none;
+}
+.form-group input[type="checkbox"] + .btn-group > label span:last-child {
+    display: inline-block;
+}
+
+.form-group input[type="checkbox"]:checked + .btn-group > label span:first-child {
+    display: inline-block;
+}
+.form-group input[type="checkbox"]:checked + .btn-group > label span:last-child {
+    display: none;
+}
